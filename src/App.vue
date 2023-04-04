@@ -1,45 +1,24 @@
 <template>
   <a-layout>
-    <a-layout-header class="header">
-      <div class="logo" />
-      <a-menu
-        theme="dark"
-        mode="horizontal"
-        v-model:selectedKeys="selectedKeys1"
-        :style="{ lineHeight: '64px' }"
-      >
-        <a-menu-item key="1">nav 1</a-menu-item>
-        <a-menu-item key="2">nav 2</a-menu-item>
-        <a-menu-item key="3">nav 3</a-menu-item>
-      </a-menu>
-    </a-layout-header>
+    <TheHeader />
     <RouterView />
-
-    <a-layout-footer style="text-align: center">
-      Ant Design ©2018 Created by Ant UED
-    </a-layout-footer>
+    <TheFooter />
   </a-layout>
 </template>
+
 <script lang="ts">
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from "@ant-design/icons-vue";
+// import {
+//   UserOutlined,
+//   LaptopOutlined,
+//   NotificationOutlined,
+// } from "@ant-design/icons-vue";
 import { defineComponent, ref } from "vue";
+import TheHeader from "./components/the-header.vue";
+import TheFooter from "./components/the-footer.vue";
 export default defineComponent({
   components: {
-    UserOutlined,
-    LaptopOutlined,
-    NotificationOutlined,
-  },
-  setup() {
-    return {
-      selectedKeys1: ref<string[]>(["2"]),
-      selectedKeys2: ref<string[]>(["1"]),
-      collapsed: ref<boolean>(false),
-      openKeys: ref<string[]>(["sub1"]),
-    };
+    TheHeader,
+    TheFooter,
   },
 });
 </script>
@@ -51,14 +30,6 @@ export default defineComponent({
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
 }
-
-/* .logo {
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.3);
-} */
 
 .ant-row-rtl #components-layout-demo-top-side-2 .logo {
   float: right;
