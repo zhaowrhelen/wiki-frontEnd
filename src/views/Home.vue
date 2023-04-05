@@ -53,12 +53,11 @@
         minHeight: '280px',
       }"
     >
-      <!-- This is Content
-      <pre>{{ ebooks }}</pre>
-      <p>=============================</p>
-      <pre>{{ books2 }}</pre>
+      <!-- <pre>{{ ebooks }}</pre> -->
+      <!-- <p>=============================</p> -->
+      <!-- <pre>{{ books2 }}</pre> -->
 
-      <p>=============================</p> -->
+      <!-- <p>=============================</p> -->
 
       <a-list
         item-layout="vertical"
@@ -121,14 +120,12 @@ export default defineComponent({
     onMounted(() => {
       console.log("onMounted");
 
-      axios
-        .get("http://localhost:8880/ebook/list?name=Python")
-        .then((response) => {
-          const data = response.data;
-          ebooks.value = data.content;
-          ebooks1.books = data.content;
-          console.log(response);
-        });
+      axios.get("http://localhost:8880/ebook/list").then((response) => {
+        const data = response.data;
+        ebooks.value = data.content;
+        ebooks1.books = data.content;
+        console.log(response);
+      });
     });
 
     const pagination = {
@@ -153,3 +150,12 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+.ant-avatar {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 8%;
+  margin: 5px 0;
+}
+</style>
