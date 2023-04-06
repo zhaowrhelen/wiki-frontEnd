@@ -31,7 +31,7 @@ app.use(store).use(router).use(Antd).mount('#app');
 
 
 
-// import all icons 
+// import all icons        
 const icons:any = Icons;
 
 for(const i in icons){
